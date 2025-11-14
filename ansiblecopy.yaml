@@ -1,0 +1,12 @@
+---
+- name: ansible playbook to test copy command
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: copyfiletask
+      copy:
+        src: /home/admin/sampletestfile.txt
+        dest: /home/admin/dump/samplefile.txt
+        owner: admin
+        group: admin
+        mode: '0755'

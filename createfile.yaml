@@ -1,0 +1,10 @@
+---
+
+- name: file-creation-playbook
+  hosts: all
+  gather_facts: yes
+  tasks:
+   - name: blankfilecreation
+     file:
+       path: /home/admin/dump/dump.txt
+       state: touch

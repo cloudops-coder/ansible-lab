@@ -1,0 +1,22 @@
+---
+- name: playbook for vm preparation before app deployment
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+      - name: directorycreation
+        file:
+           path: /home/admin/dump/dump1
+           state: directory
+      - name: file creation for putting data
+        file:
+           path: /home/admin/dump/dump1/srccode.txt
+           state: touch
+      - name: copy task to copy srccode
+        copy: 
+           src: /home/admin/dump/index.html
+           dest: /home/admin/dump/dump1/index.html
+           owner: admin
+           group: admin
+           mode: "0655"
+
